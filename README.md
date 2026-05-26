@@ -17,6 +17,7 @@ Used Perplexity for research (i.e. finding papers).
 ### Papers
 
 1. [Static Code Analysis for IoT Security: A Systematic Literature Review (2025)](https://dl.acm.org/doi/full/10.1145/3745019)
+   [Paper](3745019.pdf)
    - Authors: Diego Gomes, Eduardo Felix, Fernando Aires, Marco Vieira
    - Published: ACM Computing Surveys, Volume 58, Issue 3, 10th of September 2025
    - Summary: It is a meta-review, i.e. a review of 6 other recent literature reviews regarding static analysis for IoT:
@@ -75,17 +76,23 @@ Used Perplexity for research (i.e. finding papers).
 
    Skipped further reading because I think it is past the topic, but seems interesting anyway
 
-<!-- Cited by 1.
 3. [Static analysis for discovering IoT vulnerabilities](https://dl.acm.org/doi/abs/10.1007/s10009-020-00592-x)
-   - Authors: Igor Kotenko, Konstantin Izrailov, Mikhail Buinevich
-   - Published: Sensors 22, no. 4: 1335, 10th of February 2022
-   - Summary: It is a meta-review of 7 other reviews on IoTS (IoT Security) -->
+   [Paper](s10009-020-00592-x.pdf)
+   - Authors: Pietro Ferrera, Amit Kr Mandal, Agostino Cortesi, Fausto Spoto
+   - Published: International Journal on Software Tools for Technology Transfer, Volume 23, Issue 1, Pages 71 - 88 https://doi.org/10.1007/s10009-020-00592-x, 1st February 2021
+
+   - Summary: Extends the industrial analyser Julia to detect the OWASP Top 10 vulnerabilities in IoT devices.
+
+   Skipped further reading because it is cited by 1.
 
 4. [Toward Secure and Reliable IoT Systems: A Comprehensive Review of Formal Methods Applications](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10756658)
+   [Paper](Toward_Secure_and_Reliable_IoT_Systems_A_Comprehensive_Review_of_Formal_Methods_Applications.pdf)
 
 ### Stuff for the introduction
 
-1. IoT market growing. https://www.statista.com/outlook/tmo/internet-of-things/worldwide
+1. IoT market growing. https://www.statista.com/outlook/tmo/internet-of-things/worldwide, According to Gartner, by 2020, more
+   than 25% of cyber-attacks on enterprises will target IoT sys-
+   tems [39].
 2. Why is x essential?
 3. Difference between static and dynamic analysis
 4. IoT definition
