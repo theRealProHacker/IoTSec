@@ -8,6 +8,8 @@
 
 Used Perplexity for research (i.e. finding papers).
 
+Used ChatGPT and Claude to suggest a finer outline: https://claude.ai/share/a1e3b8b4-a6da-4b14-85c9-6de0babfcf5e
+
 ## Sources
 
 1. https://github.com/emmanuelsearch/some-iot-and-security-papers
@@ -67,16 +69,16 @@ Used Perplexity for research (i.e. finding papers).
    1. The method of choice is to find the best ML method for each of a set of tasks.
 
    #### Results
-   1. ML tasks
-   1. Classification
-   1. Anomaly detection
-   1. Regression
-   1. Clustering
-   1. Generalization: dimensionality reduction
+   1. ML tasks:
+      1. Classification
+      1. Anomaly detection
+      1. Regression
+      1. Clustering
+      1. Generalization: dimensionality reduction
 
    Skipped further reading because I think it is past the topic, but seems interesting anyway
 
-3. [Static analysis for discovering IoT vulnerabilities](https://dl.acm.org/doi/abs/10.1007/s10009-020-00592-x)
+3. [Static analysis for discovering IoT vulnerabilities](https://dl.acm.org/doi/abs/10.1007/s10009-020-00592-x)  
    [Paper](s10009-020-00592-x.pdf)
    - Authors: Pietro Ferrera, Amit Kr Mandal, Agostino Cortesi, Fausto Spoto
    - Published: International Journal on Software Tools for Technology Transfer, Volume 23, Issue 1, Pages 71 - 88 https://doi.org/10.1007/s10009-020-00592-x, 1st February 2021
@@ -85,17 +87,31 @@ Used Perplexity for research (i.e. finding papers).
 
    Skipped further reading because it is cited by 1.
 
-4. [Toward Secure and Reliable IoT Systems: A Comprehensive Review of Formal Methods Applications](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10756658)
+4. [Toward Secure and Reliable IoT Systems: A Comprehensive Review of Formal Methods Applications](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10756658)  
    [Paper](Toward_Secure_and_Reliable_IoT_Systems_A_Comprehensive_Review_of_Formal_Methods_Applications.pdf)
+   - Authors: Ikram Haddou-Oumouloud, Abderahman Kriouile, Soufiane Hamida, Ahmed Ettalbi
+   - Published: IEEE Access PP(99): 1-1, Jan 2024
+
+   - Summary: Meta-study of 35 Key Studies on Formal Approaches in IoT Systems
+      1. Formal specification languages analysed: Z, VDM, B 
+         1. Z: sequential, property, and model oriented
+         2. B: model oriented
+         3. VDM: process and model oriented
+   
+   #### Results
+   1. Gaps: Scalability, Real-Time Performance, Cooperation between Formal Methods, Adaptability, Lack of Focus on Security & Privacy ?, Usability, 
 
 ### Stuff for the introduction
 
 1. IoT market growing. https://www.statista.com/outlook/tmo/internet-of-things/worldwide, According to Gartner, by 2020, more
    than 25% of cyber-attacks on enterprises will target IoT sys-
    tems [39].
-2. Why is x essential?
-3. Difference between static and dynamic analysis
+2. Why are static analysis and formal verification essential?
+3. Difference between static and dynamic analysis -> Halteproblem
 4. IoT definition
+
+5. AI + formal modelling/static analysis is a strong combination -> LLMs are non-deterministic, a strong deterministic engine gives them grounding and a tight feedback loop  
+   Formal modelling can be very tedious -> It is often not used -> AI can make it much easier by doing the bulk of the work
 
 ## Outline
 
@@ -107,7 +123,9 @@ Title: Static IoT Code Analysis: Challenges, Solutions and Gaps
 4. Discussion: Challenges & Gaps
 5. Conclusion
 
-Ideas:
+### Finer Outline
+
+## Ideas
 
 1. how does Rust help
 2. AI: claude 5 and AISLE
