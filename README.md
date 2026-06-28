@@ -127,11 +127,13 @@ Title: Static IoT Code Analysis: Challenges, Solutions and Gaps
 
 1. Introduction (1 page)
    - IoT and IoT Security
+      - OWASP stats
    - Why static analysis, why LLMs?
    - Scope, research questions
    - Roadmap
 2. Background and Methods (2 pages)
    - 
+   - Rust
 3. Formal methods (4 pages)
    - Introduction: classical static analysis finds symptoms; formal methods prove properties
       Formal modeling and formal verification

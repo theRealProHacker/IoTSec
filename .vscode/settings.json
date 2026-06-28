@@ -1,3 +1,13 @@
 {
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+
+  // LaTeX Workshop: re-render on every save, live PDF in an editor tab.
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  // Build with latexmk (default recipe). PDF + aux files land next to the .tex.
+  "latex-workshop.latex.outDir": "%DIR%",
+
+  // Keep latexmk's .fls/.fdb files so rebuilds stay incremental; don't auto-delete.
+  "latex-workshop.latex.autoClean.run": "never"
 }
