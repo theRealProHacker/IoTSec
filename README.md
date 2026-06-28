@@ -125,6 +125,23 @@ Title: Static IoT Code Analysis: Challenges, Solutions and Gaps
 
 ### Finer Outline
 
+1. Introduction (1 page)
+   - IoT and IoT Security
+   - Why static analysis, why LLMs?
+   - Scope, research questions
+   - Roadmap
+2. Background and Methods (2 pages)
+   - 
+3. Formal methods (4 pages)
+   - Introduction: classical static analysis finds symptoms; formal methods prove properties
+      Formal modeling and formal verification
+   - Overview of methods
+   - Limitation: annotation complexity -> leads to 4
+4. LLM (2 pages)
+5. Discussion (2 pages)
+6. Conclusion (1 pages)
+
+
 ## Ideas
 
 1. how does Rust help
