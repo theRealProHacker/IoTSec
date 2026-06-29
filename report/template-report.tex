@@ -7,6 +7,10 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -81,11 +85,54 @@ Earlier, AISLE had already found several major security issues in famously hard-
 
 Lexical methods and methods using the abstract syntax tree (AST) representation are pretty "simple" methods, you would often summarize as linting. 
 
-% TODO: turn this into graphic + maybe get actual output (PERL example?)
-%           (3.5+7) 
-% Lexer:    <braces.open> <literal.decimal (3.5)> <plus> <literal.integer (7)> <braces.closed>
-% Parser:   BinOp.Add(Literal.Decimal(3.5), Literal.Integer(7))
-
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Stealth[length=2.2mm]},
+  src/.style={draw, rounded corners, fill=blue!5, inner sep=6pt, font=\ttfamily\small},
+  tok/.style={draw, rounded corners=2pt, fill=black!4, align=center,
+              minimum width=1.15cm, minimum height=0.95cm, font=\footnotesize},
+  ast/.style={draw, rounded corners=2pt, fill=green!6, align=center, inner sep=3pt},
+  root/.style={draw, rounded corners=2pt, fill=orange!10, align=center,
+               inner sep=4pt, font=\bfseries\footnotesize},
+  spine/.style={->, thick, black!60},
+  tree/.style={black!55, thick},
+  stagelbl/.style={font=\itshape\footnotesize, text=black!65},
+]
+% Stage 1: source
+\node[src] (src) at (0,0) {(3.5+7)};
+% Stage 2: tokens
+\def\ty{-2.0}
+\node[tok] (t1) at (-2.9,\ty) {OP\\\texttt{(}};
+\node[tok] (t2) at (-1.45,\ty){NUMBER\\\texttt{3.5}};
+\node[tok] (t3) at (0,\ty)    {OP\\\texttt{+}};
+\node[tok] (t4) at (1.45,\ty) {NUMBER\\\texttt{7}};
+\node[tok] (t5) at (2.9,\ty)  {OP\\\texttt{)}};
+\node[font=\scriptsize, text=black!45, right=2mm of t5, align=left]
+      {\quad};
+% Stage 3: AST tree
+\node[root] (binop) at (0,-3.9) {BinOp};
+\node[ast] (left)  at (-2.3,-5.4) {\textit{left}\\\texttt{Constant}\\\texttt{3.5}};
+\node[ast] (op)    at (0,-5.4)    {\textit{op}\\\texttt{Add}};
+\node[ast] (right) at (2.3,-5.4)  {\textit{right}\\\texttt{Constant}\\\texttt{7}};
+% pipeline arrows
+\draw[spine] (src.south) -- (0,-1.45)
+      node[stagelbl, right, pos=0.55] {lexer \;\textendash\; \texttt{tokenize}};
+\draw[spine] (0,-2.55) -- (binop.north)
+      node[stagelbl, right, pos=0.5] {parser \;\textendash\; \texttt{ast.parse}};
+% tree edges
+\draw[tree] (binop) -- (left);
+\draw[tree] (binop) -- (op);
+\draw[tree] (binop) -- (right);
+\end{tikzpicture}%
+}
+\caption{Lexing and parsing of the expression \texttt{(3.5+7)}. The lexer
+(Python's \texttt{tokenize}) splits the source into a token stream; the parser
+(\texttt{ast.parse}) assembles it into an abstract syntax tree. }
+\label{fig:lex-parse}
+\end{figure}
 
 Lexical analysis simple means breaking down text into the smallest semantic units "tokens" and analyzing them. The AST is a representation of the code as a tree, which allows for more depth. The AST is what a compiler, transpiler, interpreter and most linters and formatters will consume. 
 
