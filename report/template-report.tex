@@ -66,7 +66,6 @@ Disadvantages of static analysis
 
 LLM have seen massive advancements for coding and security. For example, looking at the "SWE-bench Verified" benchmark of 500 human-selected GitHub Issues the best-performing model, Claude 2, was only able to solve 1,96\% of the issues at the time of the benchmarks inception in 2023. \cite{jimenez2024swebench}. This stands in stark contrast to the current state-of-the-art: Claude Fable 5 solves 95\% of the same benchmark at the time of the models release. \cite{anthropic_fable_mythos_card}
 
-% TODO: cite or footnote with reasoning for limited effectiveness
 Even if one was to account for the limited effectiveness of public benchmarks, this shows quite clearly that LLMs can effectively be used for developing code. \footnote{For example, the benchmarks might be leaky, \cite{aleithan2024swebenchplus}, and the models train and memorize the solutions instead of learning the general principles. \cite{swebench_illusion}}
 
 The US government also seams to agree. On the 12th of June 2026 they forced Anthropic to take down Fable 5, the already down-graded safe-guarded version of Mythos 5, from public access after just about 76 hours by imposing a national-security export control. \cite{anthropic_fable_suspension}
@@ -109,8 +108,7 @@ The idea behind types is that any data on a digital computer is simply some bits
 
 The data only makes sense if we define operations on it, but these operations depend on the type. For example, in Python the + operator for integers does integer addition, but for strings it does string concatenation. However, if you try to "add" an integer with a string, you get a type error. In Python type checking is done at runtime and is therefore called "dynamic type checking". However, for static analysis, we can check the types ahead of run-time "static type checking". \cite{pierce2002tapl, python_datamodel}
 
-% TODO: integrate \cite{milner1978polymorphism}
-
+In his paper "A Theory of Type Polymorphism in Programming" Robin Milner argues that well-typed programs cannot "go wrong" and that therefore programmers should use a formal type discipline. \cite{milner1978polymorphism}
 
 \subsection{Flow Control}
 
@@ -130,9 +128,11 @@ Rust is a low-level programming language started in 2006 by Graydon Hoare as a s
 
 "Who doesn’t want memory safety, \emph{and} fast performance, \emph{and} a friendly compiler, \emph{and} great tooling, among a host of other wonderful features?" \cite{klabnik2023trpl}
 
-The Rust language has a very strict compiler which includes not just type checking but also a borrow checker and more. \cite{klabnik2023trpl} These checks lead to the conclusion that regular Rust code compiled through this strict compiler is also "safe": "If it compiles, it works".
+The Rust language has a very strict compiler which includes not just type checking but also a borrow checker and more. \cite{klabnik2023trpl} These checks lead to the conclusion that regular Rust code compiled through this strict compiler is also "safe": "If it compiles, it works" is a common community lore. This reminds onself of Milners idea, that says well-types programs cannot go wrong. \cite{milner1978polymorphism}
 
 "Rust's type system and runtime guarantee the absence of data races, buffer overflows, stack overflows, and accesses to uninitialized or deallocated memory." \cite{matsakis2014rust}
+
+The correctness of a small subset of Rust was also proven in 2018 in the paper "RustBelt: Securing the Foundations of Rust" where the authors do a formal, machine-checked safety proof.  \cite{jung2018rustbelt}
  
 
 % Not needed
