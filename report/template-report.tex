@@ -37,12 +37,15 @@ component, formatting, style, styling, insert
 \subsection{IoT Security}
 
 
-% TODO: 1. IoT market growing. https://www.statista.com/outlook/tmo/internet-of-things/worldwide, According to Gartner, by 2020, more than 25\% of cyber-attacks on enterprises will target IoT systems [39].
-   
-- little resources for Security
-- custom-built software 
-- limited ressources
-- difficult to update
+The Internet of Things (IoT) has grown into one of the largest computing domains in existence. Industry trackers estimate that the number of connected IoT devices reached roughly 21 billion worldwide in 2025, growing at about 14\% per year and projected to approach 39 billion by 2030, \cite{iotanalytics2025state} as the worldwide IoT market continues its rapid expansion. \cite{statista_iot_outlook} This ubiquity has not gone unnoticed by attackers: already in 2016, Gartner predicted that ``by 2020, more than 25 percent of identified attacks in enterprises will involve IoT, although IoT will account for less than 10 percent of IT security budgets.'' \cite{gartner2016iotsec} The second half of that prediction is as telling as the first: the attack surface is growing far faster than the resources devoted to securing it.
+
+Indeed, security is frequently an afterthought in IoT development. Profit-driven business models and pressure to minimize time-to-market lead manufacturers to overlook security considerations and to ship devices that are vulnerable by design. \cite{neshenko2019iot} The consequences show up as recurring, elementary weaknesses such as hard-coded or default credentials and insecure default settings, \cite{owasp2018iot} which the Mirai botnet weaponized at scale by relying on the ``rampant use of insecure default passwords'' across a vast, heterogeneous population of devices. \cite{antonakakis2017mirai}
+
+Compounding this, IoT devices commonly run custom-built, vendor-specific firmware rather than the standardized, widely-audited software stacks found in general-purpose computing. The resulting heterogeneity of standards and communication stacks means that traditional security countermeasures cannot be directly applied to IoT technologies, \cite{sicari2015iot} and the inherent complexity of so many heterogeneous entities interacting greatly complicates the design and deployment of interoperable security mechanisms. \cite{roman2013iot} Bespoke firmware is also more prone to weak programming practices and unaudited code paths than mature, mainstream software. \cite{neshenko2019iot}
+
+A further obstacle is that IoT endpoints are typically severely resource-constrained. The IETF characterizes such ``constrained nodes'' by hard limits on memory (RAM), code size (ROM/Flash), available computation, and power, with the smallest device class offering well under 10\,KiB of RAM. \cite{bormann2014rfc7228} These limits are fundamentally at odds with conventional security: strong cryptographic algorithms must be made efficient enough to run even on 8- or 16-bit devices, \cite{roman2013iot} and more generally, ``limited storage, power, and computational capabilities hinder addressing IoT security requirements.'' \cite{neshenko2019iot}
+
+Finally, even once vulnerabilities are discovered, IoT devices are notoriously difficult to update. Most devices lack a built-in secure firmware update mechanism, so that ``critical security vulnerabilities cannot be fixed, and the IoT devices can become a permanent liability.'' \cite{zandberg2019firmware} Many are deployed with little or no infrastructure for applying patches, \cite{antonakakis2017mirai} and even where update mechanisms exist they are routinely neglected: a large share of devices run outdated firmware, with surveys reporting that roughly 40\% of users never update at all. \cite{neshenko2019iot} Combined with long deployment lifetimes and frequent vendor abandonment, this leaves known vulnerabilities exploitable for years.
 
 \subsection{Static Analysis}
 
@@ -87,7 +90,7 @@ Lexical methods and methods using the abstract syntax tree (AST) representation 
 Lexical analysis simple means breaking down text into the smallest semantic units "tokens" and analyzing them. The AST is a representation of the code as a tree, which allows for more depth. The AST is what a compiler, transpiler, interpreter and most linters and formatters will consume. 
 
 % TODO: graphic + best with citation
-% [raw text] --lexer-> [tokens] --parser-> [AST] -> (consumer)
+% (raw text) --> [lexer] --> (tokens) --> [parser] --> (AST) --> [consumer]
 
 
 \textbf{Examples}

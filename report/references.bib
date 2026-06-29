@@ -1,3 +1,142 @@
+% ---------- IoT Security (Introduction) ----------
+
+@misc{iotanalytics2025state,
+  author       = {Sinha, Satyajit},
+  title        = {State of {IoT} 2025: Number of Connected {IoT} Devices Growing
+                  14\% to 21.1 Billion Globally},
+  howpublished = {\url{https://iot-analytics.com/number-connected-iot-devices/}},
+  publisher    = {IoT Analytics},
+  year         = {2025},
+  month        = oct,
+  note         = {Connected-device count: 21.1 billion by end of 2025 (14\% YoY);
+                  forecast 39 billion by 2030 (CAGR 13.2\%)}
+}
+
+@misc{statista_iot_outlook,
+  author       = {{Statista}},
+  title        = {{Internet of Things} --- Worldwide (Market Outlook)},
+  howpublished = {\url{https://www.statista.com/outlook/tmo/internet-of-things/worldwide}},
+  year         = {2025},
+  note         = {Statista IoT market-outlook dashboard; worldwide IoT market
+                  revenue projections. User-supplied source for market growth}
+}
+
+@misc{gartner2016iotsec,
+  author       = {{Gartner}},
+  title        = {Gartner Says Worldwide {IoT} Security Spending to Reach
+                  \$348 Million in 2016},
+  howpublished = {\url{https://www.gartner.com/en/newsroom/press-releases/2016-04-25-gartner-says-worldwide-iot-security-spending-to-reach-348-million-in-2016}},
+  year         = {2016},
+  month        = apr,
+  note         = {Press release, 25 Apr 2016. Verbatim prediction: ``By 2020, more
+                  than 25 percent of identified attacks in enterprises will involve
+                  IoT, although IoT will account for less than 10 percent of IT
+                  security budgets''}
+}
+
+@article{neshenko2019iot,
+  author  = {Neshenko, Nataliia and Bou-Harb, Elias and Crichigno, Jorge and
+             Kaddoum, Georges and Ghani, Nasir},
+  title   = {Demystifying {IoT} Security: An Exhaustive Survey on {IoT}
+             Vulnerabilities and a First Empirical Look on Internet-Scale {IoT}
+             Exploitations},
+  journal = {IEEE Communications Surveys \& Tutorials},
+  volume  = {21},
+  number  = {3},
+  pages   = {2702--2733},
+  year    = {2019},
+  doi     = {10.1109/COMST.2019.2910750},
+  note    = {Multi-claim intro source: ``time-to-market ... overlook security
+             considerations''; ``limited storage, power, and computational
+             capabilities hinder addressing IoT security requirements''; improper
+             patch/software-update capabilities; ~40\% of consumers never update
+             firmware; weak programming practices in vendor firmware}
+}
+
+@inproceedings{antonakakis2017mirai,
+  author    = {Antonakakis, Manos and April, Tim and Bailey, Michael and
+               Bernhard, Matt and Bursztein, Elie and Cochran, Jaime and
+               Durumeric, Zakir and Halderman, J. Alex and Invernizzi, Luca and
+               Kallitsis, Michalis and Kumar, Deepak and Lever, Chaz and
+               Ma, Zane and Mason, Joshua and Menscher, Damian and Seaman, Chad and
+               Sullivan, Nick and Thomas, Kurt and Zhou, Yi},
+  title     = {Understanding the {Mirai} Botnet},
+  booktitle = {26th USENIX Security Symposium (USENIX Security 17)},
+  pages     = {1093--1110},
+  year      = {2017},
+  publisher = {USENIX Association},
+  note      = {``rampant use of insecure default passwords in IoT products'';
+               ``the absence of security best practices ... has created an IoT
+               substrate ripe for exploitation''; infected devices had ``little
+               infrastructure to effectively apply security patches''}
+}
+
+@misc{owasp2018iot,
+  author       = {{OWASP Internet of Things Project}},
+  title        = {{OWASP} {IoT} Top 10 --- 2018},
+  howpublished = {\url{https://owasp.org/www-project-internet-of-things/}},
+  year         = {2018},
+  note         = {Industry consensus list (not peer-reviewed). I1 ``Weak, Guessable,
+                  or Hardcoded Passwords''; I9 ``Insecure Default Settings''}
+}
+
+@article{sicari2015iot,
+  author  = {Sicari, Sabrina and Rizzardi, Alessandra and Grieco, Luigi Alfredo
+             and Coen-Porisini, Alberto},
+  title   = {Security, Privacy and Trust in {Internet of Things}: The Road Ahead},
+  journal = {Computer Networks},
+  volume  = {76},
+  pages   = {146--164},
+  year    = {2015},
+  doi     = {10.1016/j.comnet.2014.11.008},
+  note    = {``Traditional security countermeasures cannot be directly applied to
+             IoT technologies due to the different standards and communication
+             stacks involved''}
+}
+
+@article{roman2013iot,
+  author  = {Roman, Rodrigo and Zhou, Jianying and Lopez, Javier},
+  title   = {On the Features and Challenges of Security and Privacy in
+             Distributed {Internet of Things}},
+  journal = {Computer Networks},
+  volume  = {57},
+  number  = {10},
+  pages   = {2266--2279},
+  year    = {2013},
+  doi     = {10.1016/j.comnet.2012.12.018},
+  note    = {Heterogeneity of IoT entities complicates interoperable security;
+             need for efficient cryptographic algorithms even on 8-bit/16-bit
+             devices}
+}
+
+@misc{bormann2014rfc7228,
+  author       = {Bormann, Carsten and Ersue, Mehmet and Ker\"anen, Ari},
+  title        = {Terminology for Constrained-Node Networks},
+  howpublished = {RFC 7228, Internet Engineering Task Force (IETF)},
+  year         = {2014},
+  month        = may,
+  doi          = {10.17487/RFC7228},
+  note         = {Canonical definition of constrained nodes: limits on code size
+                  (ROM/Flash), state/buffers (RAM), computation, and power; device
+                  Classes 0/1/2 (Class 0: < ~10 KiB RAM, < ~100 KiB Flash)}
+}
+
+@article{zandberg2019firmware,
+  author  = {Zandberg, Koen and Schleiser, Kaspar and Acosta, Francisco and
+             Tschofenig, Hannes and Baccelli, Emmanuel},
+  title   = {Secure Firmware Updates for Constrained {IoT} Devices Using Open
+             Standards: A Reality Check},
+  journal = {IEEE Access},
+  volume  = {7},
+  pages   = {71907--71920},
+  year    = {2019},
+  doi     = {10.1109/ACCESS.2019.2919760},
+  note    = {``most IoT devices lack a built-in secure firmware update mechanism.
+             Without such a mechanism ... critical security vulnerabilities cannot
+             be fixed, and the IoT devices can become a permanent liability'';
+             targets devices with < 32 kB RAM / 128 kB flash}
+}
+
 % ---------- Static / Dynamic Analysis ----------
 
 @book{nielson1999ppa,
