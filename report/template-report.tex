@@ -58,7 +58,7 @@ Static analysis is the analysis of code, binaries or other artifacts to check ce
 Static analysis examines code \emph{without} executing it; dynamic analysis
 examines it \emph{by} executing it.
 \begin{itemize}
-  \item \textbf{Examples fo static analysis:} linting, formatting, syntax checking, type checking,
+  \item \textbf{Examples for static analysis:} linting, formatting, syntax checking, type checking,
         flow analysis.
   \item \textbf{Examples for dynamic analysis:} testing, emulation.
 \end{itemize}
@@ -128,11 +128,32 @@ Lexical methods and methods using the abstract syntax tree (AST) representation 
 \label{fig:lex-parse}
 \end{figure}
 
-Lexical analysis simple means breaking down text into the smallest semantic units "tokens" and analyzing them. The AST is a representation of the code as a tree, which allows for more depth. The AST is what a compiler, transpiler, interpreter and most linters and formatters will consume. 
+Lexical analysis simple means breaking down text into the smallest semantic units "tokens" and analyzing them. The AST is a representation of the code as a tree, which allows for more depth (see Fig. \ref{fig:lex-parse}). The AST is what a compiler, transpiler, interpreter and most linters and formatters will consume (see Fig. \ref{fig:frontend-pipeline}).
 
-% TODO: graphic + best with citation
-% (raw text) --> [lexer] --> (tokens) --> [parser] --> (AST) --> [consumer]
-
+% Preamble: \usepackage{tikz} +
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize, >={Stealth[length=2.2mm]},
+  data/.style={draw, rounded corners=9pt, fill=blue!5, align=center,
+               inner sep=4pt, minimum height=8mm, minimum width=11mm},
+  proc/.style={draw, fill=black!6, align=center,
+               inner sep=4pt, minimum height=8mm, minimum width=13mm},
+  ar/.style={->, thick, black!60}, node distance=4.5mm,
+]
+\node[data] (raw)               {raw\\text};
+\node[proc, right=of raw] (lex) {lexer};
+\node[data, right=of lex] (tok) {tokens};
+\node[proc, right=of tok] (par) {parser};
+\node[data, right=of par] (ast) {AST};
+\node[proc, right=of ast] (con) {consumer};
+\draw[ar] (raw) -- (lex); \draw[ar] (lex) -- (tok); \draw[ar] (tok) -- (par);
+\draw[ar] (par) -- (ast); \draw[ar] (ast) -- (con);
+\end{tikzpicture}}
+\caption{Front-end pipeline of a static analyzer. \cite{aho2006compilers} Rounded nodes are data, rectangular nodes are processing stages.}
+\label{fig:frontend-pipeline}
+\end{figure}
 
 \textbf{Examples}
 
