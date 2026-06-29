@@ -55,19 +55,15 @@ Finally, even once vulnerabilities are discovered, IoT devices are notoriously d
 
 Static analysis is the analysis of code, binaries or other artifacts to check certain properties without, in contrast to dynamic analysis, executing any code. \cite{cousot1977ai}
 
+Static analysis examines code \emph{without} executing it; dynamic analysis
+examines it \emph{by} executing it.
+\begin{itemize}
+  \item \textbf{Examples fo static analysis:} linting, formatting, syntax checking, type checking,
+        flow analysis.
+  \item \textbf{Examples for dynamic analysis:} testing, emulation.
+\end{itemize}
 
-% TODO formatting
-Examples for static analysis: linting, formatter, syntax checking, type checking, flow analysis
-
-Examples for dynamic analysis: tests, emulation
-
-Advantages of static analysis
-- high efficiency, run quickly, cheap
-- Find errors quickly
-
-Disadvantages of static analysis
-- theoretical limitations (Halteproblem)
-- high possible false-positive rate
+Static analysis is efficient, i.e. it runs quickly and cheaply, and catches errors early, before runtime. Its limitations are theoretical (the halting problem) and a potentially high false-positive rate.
 
 \subsection{Large Language Models for Coding}
 
