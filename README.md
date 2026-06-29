@@ -10,7 +10,7 @@
 2. Used ChatGPT and Claude to suggest a finer outline: https://claude.ai/share/a1e3b8b4-a6da-4b14-85c9-6de0babfcf5e
 3. Used Claude for help with LaTeX: installation, auto-compile setup, errors, figures and layout
 4. Used Claude to find citations for things I only know in my head -> had to be thoroughly verified because it likes to make stuff up
-5. Finally, I used Claude for language review
+5. Finally, I used Claude for a paper review
 
 For search, AI search is simply the next level of Google search or similar. Other tasks are either tedious nuisances that have no scientific value (e.g. setting up LaTeX) or are tasks that other humans would do (review and checking citations). In general I tried to make sure the AI is not driving my work (write me an article on topic X), but I am driving the AI and simply using it as a more advanced tool and partner.  
 
@@ -104,11 +104,6 @@ For search, AI search is simply the next level of Google search or similar. Othe
    
    #### Results
    1. Gaps: Scalability, Real-Time Performance, Cooperation between Formal Methods, Adaptability, Lack of Focus on Security & Privacy ?, Usability, 
-
-### Stuff for the introduction
-
-5. AI + formal modelling/static analysis is a strong combination -> LLMs are non-deterministic, a strong deterministic engine gives them grounding and a tight feedback loop  
-   Formal modelling can be very tedious -> It is often not used -> AI can make it much easier by doing the bulk of the work
 
 ## Outline
 
