@@ -11,10 +11,10 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Report Title\\
+\title{Static analysis with focus on using language models and Hoare logic\\
 }
 
-\author{\IEEEauthorblockN{Student Name}
+\author{\IEEEauthorblockN{Rashid Harvey}
 \IEEEauthorblockA{\textit{Freie Universit\"at Berlin} \\
 IoT \& Security Seminar Report
 }
@@ -23,231 +23,184 @@ IoT \& Security Seminar Report
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
-or Math in Paper Title or Abstract.
+    Abstract
 \end{abstract}
 
 \begin{IEEEkeywords}
 component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
+% General TODOs: 
+
 \section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
 
-\section{Ease of Use}
+\subsection{IoT Security}
 
-\subsection{Maintaining the Integrity of the Specifications}
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
+% TODO: 1. IoT market growing. https://www.statista.com/outlook/tmo/internet-of-things/worldwide, According to Gartner, by 2020, more than 25\% of cyber-attacks on enterprises will target IoT systems [39].
+   
+- little resources for Security
+- custom-built software 
+- limited ressources
+- difficult to update
 
-\section{Prepare Your Paper Before Styling}
-Before you begin to format your paper, first write and save the content as a 
-separate text file. Complete all content and organizational editing before 
-formatting. Please note sections \ref{AA}--\ref{SCM} below for more information on 
-proofreading, spelling and grammar.
+\subsection{Static Analysis}
 
-Keep your text and graphic files separate until after the text has been 
-formatted and styled. Do not number text heads---{\LaTeX} will do that 
-for you.
+% TODO: actually cite this
+Static analysis is the analysis of code, binaries or other artifacts to check certain properties without, in contrast to dynamic analysis, executing any code. 
 
-\subsection{Abbreviations and Acronyms}\label{AA}
-Define abbreviations and acronyms the first time they are used in the text, 
-even after they have been defined in the abstract. Abbreviations such as 
-IEEE, SI, MKS, CGS, ac, dc, and rms do not have to be defined. Do not use 
-abbreviations in the title or heads unless they are unavoidable.
 
-\subsection{Units}
-\begin{itemize}
-\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
-\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
-\item Do not mix complete spellings and abbreviations of units: ``Wb/m\textsuperscript{2}'' or ``webers per square meter'', not ``webers/m\textsuperscript{2}''. Spell out units when they appear in text: ``. . . a few henries'', not ``. . . a few H''.
-\item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm\textsuperscript{3}'', not ``cc''.)
-\end{itemize}
+% TODO formatting
+Examples for static analysis: linting, formatter, syntax checking, type checking, flow analysis
 
-\subsection{Equations}
-Number equations consecutively. To make your 
-equations more compact, you may use the solidus (~/~), the exp function, or 
-appropriate exponents. Italicize Roman symbols for quantities and variables, 
-but not Greek symbols. Use a long dash rather than a hyphen for a minus 
-sign. Punctuate equations with commas or periods when they are part of a 
-sentence, as in:
-\begin{equation}
-a+b=\gamma\label{eq}
-\end{equation}
+Examples for dynamic analysis: tests, emulation
 
-Be sure that the 
-symbols in your equation have been defined before or immediately following 
-the equation. Use ``\eqref{eq}'', not ``Eq.~\eqref{eq}'' or ``equation \eqref{eq}'', except at 
-the beginning of a sentence: ``Equation \eqref{eq} is . . .''
+Advantages of static analysis
+- high efficiency, run quickly, cheap
+- Find errors quickly
 
-\subsection{\LaTeX-Specific Advice}
+Disadvantages of static analysis
+- theoretical limitations (Halteproblem)
+- high possible false-positive rate
 
-Please use ``soft'' (e.g., \verb|\eqref{Eq}|) cross references instead
-of ``hard'' references (e.g., \verb|(1)|). That will make it possible
-to combine sections, add equations, or change the order of figures or
-citations without having to go through the file line by line.
+\subsection{Large Language Models for Coding}
 
-Please don't use the \verb|{eqnarray}| equation environment. Use
-\verb|{align}| or \verb|{IEEEeqnarray}| instead. The \verb|{eqnarray}|
-environment leaves unsightly spaces around relation symbols.
+LLM have seen massive advancements for coding and security. For example, looking at the "SWE-bench Verified" benchmark of 500 human-selected GitHub Issues the best-performing model, Claude 2, was only able to solve 1,96\% of the issues at the time of the benchmarks inception in 2023. \cite{jimenez2024swebench}. This stands in stark contrast to the current state-of-the-art: Claude Fable 5 solves 95\% of the same benchmark at the time of the models release. \cite{anthropic_fable_mythos_card}
 
-Please note that the \verb|{subequations}| environment in {\LaTeX}
-will increment the main equation counter even when there are no
-equation numbers displayed. If you forget that, you might write an
-article in which the equation numbers skip from (17) to (20), causing
-the copy editors to wonder if you've discovered a new method of
-counting.
+% TODO: cite or footnote with reasoning for limited effectiveness
+Even if one was to account for the limited effectiveness of public benchmarks, this shows quite clearly that LLMs can effectively be used for developing code. \footnote{For example, the benchmarks might be leaky, \cite{aleithan2024swebenchplus}, and the models train and memorize the solutions instead of learning the general principles. \cite{swebench_illusion}}
 
-{\BibTeX} does not work by magic. It doesn't get the bibliographic
-data from thin air but from .bib files. If you use {\BibTeX} to produce a
-bibliography you must send the .bib files. 
+The US government also seams to agree. On the 12th of June 2026 they forced Anthropic to take down Fable 5, the already down-graded safe-guarded version of Mythos 5, from public access after just about 76 hours by imposing a national-security export control. \cite{anthropic_fable_suspension}
 
-{\LaTeX} can't read your mind. If you assign the same label to a
-subsubsection and a table, you might find that Table I has been cross
-referenced as Table IV-B3. 
+Earlier, AISLE had already found several major security issues in famously hard-audited, mature codebases like OpenSSL. \cite{aisle_openssl2026} 
 
-{\LaTeX} does not have precognitive abilities. If you put a
-\verb|\label| command before the command that updates the counter it's
-supposed to be using, the label will pick up the last counter to be
-cross referenced instead. In particular, a \verb|\label| command
-should not go before the caption of a figure or a table.
+\section{Static Analysis Methods}
 
-Do not use \verb|\nonumber| inside the \verb|{array}| environment. It
-will not stop equation numbers inside \verb|{array}| (there won't be
-any anyway) and it might stop a wanted equation number in the
-surrounding equation.
+\subsection{Lexical Methods and Methods Using the Abstract Syntax Tree Representation}
 
-\subsection{Some Common Mistakes}\label{SCM}
-\begin{itemize}
-\item The word ``data'' is plural, not singular.
-\item The subscript for the permeability of vacuum $\mu_{0}$, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
-\item In American English, commas, semicolons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
-\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
-\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
-\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
-\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
-\item Do not confuse ``imply'' and ``infer''.
-\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
-\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
-\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
-\end{itemize}
-An excellent style manual for science writers is \cite{b7}.
+Lexical methods and methods using the abstract syntax tree (AST) representation are pretty "simple" methods, you would often summarize as linting. 
 
-\subsection{Authors and Affiliations}
-\textbf{The class file is designed for, but not limited to, six authors.} A 
-minimum of one author is required for all conference articles. Author names 
-should be listed starting from left to right and then moving down to the 
-next line. This is the author sequence that will be used in future citations 
-and by indexing services. Names should not be listed in columns nor group by 
-affiliation. Please keep your affiliations as succinct as possible (for 
-example, do not differentiate among departments of the same organization).
+% TODO: turn this into graphic + maybe get actual output (PERL example?)
+%           (3.5+7) 
+% Lexer:    <braces.open> <literal.decimal (3.5)> <plus> <literal.integer (7)> <braces.closed>
+% Parser:   BinOp.Add(Literal.Decimal(3.5), Literal.Integer(7))
 
-\subsection{Identify the Headings}
-Headings, or heads, are organizational devices that guide the reader through 
-your paper. There are two types: component heads and text heads.
 
-Component heads identify the different components of your paper and are not 
-topically subordinate to each other. Examples include Acknowledgments and 
-References and, for these, the correct style to use is ``Heading 5''. Use 
-``figure caption'' for your Figure captions, and ``table head'' for your 
-table title. Run-in heads, such as ``Abstract'', will require you to apply a 
-style (in this case, italic) in addition to the style provided by the drop 
-down menu to differentiate the head from the text.
+Lexical analysis simple means breaking down text into the smallest semantic units "tokens" and analyzing them. The AST is a representation of the code as a tree, which allows for more depth. The AST is what a compiler, transpiler, interpreter and most linters and formatters will consume. 
 
-Text heads organize the topics on a relational, hierarchical basis. For 
-example, the paper title is the primary text head because all subsequent 
-material relates and elaborates on this one topic. If there are two or more 
-sub-topics, the next level head (uppercase Roman numerals) should be used 
-and, conversely, if there are not at least two sub-topics, then no subheads 
-should be introduced.
+% TODO: graphic + best with citation
+% [raw text] --lexer-> [tokens] --parser-> [AST] -> (consumer)
 
-\subsection{Figures and Tables}
-\paragraph{Reusing Figures from other papers} If you reuse a figure from another paper as-is, make sure to cite the paper appropriately, including in the caption of the figure, for optimal clarity on that aspect.
-\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-bottom of columns. Avoid placing them in the middle of columns. Large 
-figures and tables may span across both columns. Figure captions should be 
-below the figures; table heads should appear above the tables. Insert 
-figures and tables after they are cited in the text. Use the abbreviation 
-``Fig.~\ref{fig}'', even at the beginning of a sentence.
 
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
+\textbf{Examples}
 
-\begin{figure}[htbp]
-\centerline{\includegraphics{fig1.png}}
-\caption{Example of a figure caption.}
-\label{fig}
+\begin{enumerate}
+    \item Syntax errors
+    \item Name errors or misspellings
+    \item Missing definitions and declarations
+    \item Rule matching, e.g. leaked secrets
+\end{enumerate}
+
+
+\subsection{Semantic Methods}\label{AA}
+
+\subsubsection{Type checking}
+
+The idea behind types is that any data on a digital computer is simply some bitstring. The interpretation of this bitstring is what makes the data a value. 
+
+The data only makes sense if we define operations on it, but these operations depend on the type. For example, in Python the + operator for integers does integer addition, but for strings it does string concatenation. However, if you try to "add" an integer with a string, you get a type error. In Python type checking is done at runtime and is therefore called "dynamic type checking". However, for static analysis, we can check the types ahead of run-time "static type checking". \cite{pierce2002tapl, python_datamodel}
+
+% TODO: integrate \cite{milner1978polymorphism}
+
+
+\subsection{Flow Control}
+
+% Skip for now
+
+- info flow control
+- control flow analysis
+- taint analysis
+
+
+
+\subsection{Case study: Rust}
+
+
+% TODO: cite next line -> Wikipedia?
+Rust is a low-level programming language started in 2006 by Graydon Hoare as a side project, then officially sponsored by Mozilla in 2009 and it finally reached maturity (v1.0) in 2015. Rust was specifically created to solve the flaws of C/C++. \cite{thompson2023rust, hoare2025rustdecade} This section tries to summarize how this is done in Rust. 
+
+"Who doesn’t want memory safety, \emph{and} fast performance, \emph{and} a friendly compiler, \emph{and} great tooling, among a host of other wonderful features?" \cite{klabnik2023trpl}
+
+The Rust language has a very strict compiler which includes not just type checking but also a borrow checker and more. \cite{klabnik2023trpl} These checks lead to the conclusion that regular Rust code compiled through this strict compiler is also "safe": "If it compiles, it works".
+
+"Rust's type system and runtime guarantee the absence of data races, buffer overflows, stack overflows, and accesses to uninitialized or deallocated memory." \cite{matsakis2014rust}
+ 
+
+% Not needed
+% To make Rust more flexible, for example in very low-level settings without a standard library, "unsafe" Rust can be used. This allows for a small highly verified "unsafe" part and a general "safe" part. For example, linked lists without an allocator can only be implemented using "unsafe" code. "unsafe" code is not necessarily actually unsafe. The label rather points out that the code must be checked by hand, and, in contrast to "safe" code, the compiler cannot be relied on. 
+
+% On the other hand the compiler cannot always know all of our assumptions. For example, we don't have to care about race conditions in single-processor kernel code when interrupts are turned off. In these sitautions it also makes sense to use "unsafe" code.
+
+\subsubsection{Case studies}
+Large-scale industry data supports this: Microsoft reports that roughly 70\% of
+its annually assigned CVEs are memory-safety issues, \cite{miller2019bluehat, msrc2019saferlang}, while Android saw memory-safety vulnerabilities fall from
+76\% to 24\% after shifting new development to memory-safe
+languages. \cite{vanderstoep2024android}
+
+
+\section{Formal Methods}
+
+\subsection{Introduction to Formal Methods}
+
+classical static analysis finds symptoms; formal methods prove properties
+
+% \subsection{Formal Models and Formal Verification}
+When applying formal methods first a formal model is created. The kind of model used depends on the use case
+% TODO: here examples 
+After the model is set up, model checking must be applied, this is called formal verification. 
+
+The beauty of Hoare logic 
+
+\subsection{Overview of Methods}
+
+% TODO: cite each thing
+\begin{enumerate}
+    % TODO: cite [Toward Secure and Reliable IoT Systems: A Comprehensive Review of Formal Methods Applications](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10756658)  
+    \item Model-based formal specification languages like Z, Vienna Development Model (VDM), and B 
+    % TODO: cite https://popl26.sigplan.org/home/dafny-2026 for both lists
+    \item Interactive proof assistants like Rocq (formerly Coq),\cite{rocq2025} Isabelle/HOL~\cite{} or Lean
+    \item Verification-aware programming languages like Dafny, \cite{leino2010dafny} SPARK, F*, \cite{swamy2016fstar} Why3, Viper, Whiley or hax
+\end{enumerate}
+
+\subsection{Examples}
+
+\subsubsection{Dafny}
+
+
+In the original paper on Dafny, Leino gave the challenges of directly using interactive proof assistants and satisfiability-modulo-theories (SMT) solvers as main reason for the creation of Daphny. The idea is that the programmer doesn't have to interact with any proof assistant or solver directly, only make certain annotations \cite{leino2010dafny}. Dafny compiles down to C#, Java, JavaScript, Go, and Python
+
+% TODO: add daphny.png, caption: method declaration that promises
+% to set the output parameter r to the integer square root of the input parameter n, provided n is non-
+% negative -> from daphny paper
+\begin{figure}
+    
 \end{figure}
 
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
-rather than symbols or abbreviations when writing Figure axis labels to 
-avoid confusing the reader. As an example, write the quantity 
-``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
-units in the label, present them within parentheses. Do not label axes only 
-with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
-\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
-quantities and units. For example, write ``Temperature (K)'', not 
-``Temperature/K''.
 
-\section*{AI Statment}
+% To have a smooth transition to the next chapter, i.e. motivate using LLMs
+\subsection{Limitations}
 
-In this section, state which arttificial intelligence tools were used to
-support the writing process, if any.
-Detail how and for what purpose these tools were used, on which sections, and/or for
-which aspect of the pre-writing stages.
+% TODO: cite [Toward Secure and Reliable IoT Systems: A Comprehensive Review of Formal Methods Applications](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10756658)  
+1. Gaps: Scalability, Real-Time Performance, Cooperation between Formal Methods, Adaptability, Lack of Focus on Security \& Privacy ?, Usability,
 
-\section*{References}
+\section{Discussion}
 
-Please number citations consecutively within brackets \cite{b1}. The 
-sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
+-> build "theoretical emulators"
 
-Number footnotes separately in superscripts. Place the actual footnote at 
-the bottom of the column in which it was cited. Do not put footnotes in the 
-abstract or reference list. Use letters for table footnotes.
+\section{Conclusion}
 
-Unless there are six authors or more give all authors' names; do not use 
-``et al.''. Papers that have not been published, even if they have been 
-submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-Capitalize only the first word in a paper title, except for proper nouns and 
-element symbols.
-
-For papers published in translation journals, please give the English 
-citation first, followed by the original foreign-language citation \cite{b6}.
-
-\begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-\end{thebibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 \vspace{12pt}
 
 \end{document}

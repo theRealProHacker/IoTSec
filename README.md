@@ -6,9 +6,12 @@
 
 ## Use of AI
 
-Used Perplexity for research (i.e. finding papers).
+1. Used Perplexity for research (i.e. finding papers).
+2. Used ChatGPT and Claude to suggest a finer outline: https://claude.ai/share/a1e3b8b4-a6da-4b14-85c9-6de0babfcf5e
+3. Used Claude for help with LaTeX: installation, auto-compile setup, errors
+4. Used Claude to find citations for things I only know in my head -> had to be thoroughly verified because it likes to make stuff up
 
-Used ChatGPT and Claude to suggest a finer outline: https://claude.ai/share/a1e3b8b4-a6da-4b14-85c9-6de0babfcf5e
+For search, AI search is simply the next level of Google search or similar. Other tasks are either tedious nuisances that have no scientific value (e.g. setting up LaTeX) or are tasks that other humans would do (review and checking citations). In general I tried to make sure the AI is not driving my work (write me an article on topic X), but I am driving the AI and simply using it as a more advanced tool and partner.  
 
 ## Sources
 
@@ -103,13 +106,6 @@ Used ChatGPT and Claude to suggest a finer outline: https://claude.ai/share/a1e3
 
 ### Stuff for the introduction
 
-1. IoT market growing. https://www.statista.com/outlook/tmo/internet-of-things/worldwide, According to Gartner, by 2020, more
-   than 25% of cyber-attacks on enterprises will target IoT sys-
-   tems [39].
-2. Why are static analysis and formal verification essential?
-3. Difference between static and dynamic analysis -> Halteproblem
-4. IoT definition
-
 5. AI + formal modelling/static analysis is a strong combination -> LLMs are non-deterministic, a strong deterministic engine gives them grounding and a tight feedback loop  
    Formal modelling can be very tedious -> It is often not used -> AI can make it much easier by doing the bulk of the work
 
@@ -132,7 +128,9 @@ Title: Static IoT Code Analysis: Challenges, Solutions and Gaps
    - Scope, research questions
    - Roadmap
 2. Background and Methods (2 pages)
-   - 
+   - Lexical
+   - Semantic
+   - Flow control
    - Rust
 3. Formal methods (4 pages)
    - Introduction: classical static analysis finds symptoms; formal methods prove properties
@@ -140,12 +138,11 @@ Title: Static IoT Code Analysis: Challenges, Solutions and Gaps
    - Overview of methods
    - Limitation: annotation complexity -> leads to 4
 4. LLM (2 pages)
+   - Motivation
+   - How exactly?
+   - Case study: Bertie proven TLS
 5. Discussion (2 pages)
 6. Conclusion (1 pages)
 
 
-## Ideas
-
-1. how does Rust help
-2. AI: claude 5 and AISLE
-3.
+# Images
