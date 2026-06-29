@@ -154,11 +154,11 @@ In his paper ``A Theory of Type Polymorphism in Programming`` Robin Milner argue
 
 \subsection{Flow Control}
 
-A further class of semantic methods reasons about how information moves through a program. \emph{Information-flow analysis} tracks how the values of variables depend on one another, with the goal of certifying that secret data never reaches a public output. \cite{denning1977infoflow, sabelfeld2003infoflow} A flow from a variable $x$ to a variable $y$, written $x \rightarrow y$, means that observing $y$ may reveal something about $x$. Two kinds of such flows are distinguished.
+A further class of semantic methods reasons about how information moves through a program. \emph{Information-flow analysis} tracks how the values of variables depend on one another, with the goal of certifying that secret data never reaches a public output. \cite{denning1977infoflow, sabelfeld2003infoflow} A flow from a variable $x$ to a variable $y$, written $x \rightarrow y$, means that observing $y$ may reveal something about $x$. Two kinds of such flows are distinguished. \cite{roth2025infoflow}
 
-\textbf{Explicit flows.} The most direct case is an assignment that copies a value. In the program $y := x$ all information from $x$ flows to $y$. The flow need not be total: in $y := x/8$ not all, but some information may flow from $x$ to $y$, since $y$ no longer determines $x$ exactly. Both are \emph{explicit} flows, denoted $x \rightarrow y$, because the dependency is carried directly by the data passed in the assignment.
+\subsubsection{\textbf{Explicit flows}} The most direct case is an assignment that copies a value. In the program $y := x$ all information from $x$ flows to $y$. The flow need not be total: in $y := x/8$ not all, but some information may flow from $x$ to $y$, since $y$ no longer determines $x$ exactly. Both are \emph{explicit} flows, denoted $x \rightarrow y$, because the dependency is carried directly by the data passed in the assignment.
 
-\textbf{Implicit flows.} Information can also leak through the control flow itself, without any direct assignment from the source. Consider:
+\subsubsection{\textbf{Implicit flows}} Information can also leak through the control flow itself, without any direct assignment from the source. Consider:
 
 \begin{algorithmic}
 \STATE $y := 0$
@@ -167,9 +167,11 @@ A further class of semantic methods reasons about how information moves through 
 \ENDIF
 \end{algorithmic}
 
-Here $x$ is never assigned to $y$, yet some information still flows from $x$ to $y$: after the final line, observing $y$ tells us whether $x \geq 8$. This is an \emph{implicit} flow, again denoted $x \rightarrow y$. In general, any conditional control-flow change encodes information about the values that guided it, so a sound analysis must account for implicit as well as explicit flows. \cite{denning1977infoflow, sabelfeld2003infoflow} Practical enforcement tools build on this distinction; the Jif/JFlow extension of Java, for example, lets programmers annotate data with security labels that the compiler then checks against both flow kinds. \cite{myers1999jflow}
+Here $x$ is never assigned to $y$, yet some information still flows from $x$ to $y$: after the final line, observing $y$ tells us whether $x \geq 8$. This is an \emph{implicit} flow, again denoted $x \rightarrow y$. In general, any conditional control-flow change encodes information about the values that guided it, so a sound analysis must account for implicit as well as explicit flows. \cite{denning1977infoflow, sabelfeld2003infoflow}
 
-Related flow-analysis techniques include control-flow analysis, which examines the possible paths of execution, and taint analysis, which follows untrusted (``tainted'') inputs to ensure they cannot reach sensitive operations unsanitized.
+\subsubsection{\textbf{Practical enforcement tools}} build on this distinction; the Jif/JFlow extension of Java, for example, lets programmers annotate data with security labels that the compiler then checks against both flow kinds. \cite{myers1999jflow}
+
+\subsubsection{\textbf{Related flow-analysis techniques}} include control-flow analysis, which examines the possible paths of execution, and taint analysis, which follows untrusted (``tainted'') inputs to ensure they cannot reach sensitive operations unsanitized.
 
 
 
