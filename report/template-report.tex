@@ -396,6 +396,19 @@ Language models are now being applied to exactly this gap. In only a few years L
 
 A promising path for IoT is to combine techniques rather than rely on any one: the productivity of AI together with the soundness of a formal engine, which would lower the usability barrier that has long kept verification away from constrained, unpatchable devices. Two problems remain: First, the evidence is not sufficient: results are strong on small benchmarks but fall off sharply on large, real systems, and none of the AI-assisted verification surveyed here has yet been demonstrated on IoT firmware, so this is a direction rather than a settled result. Second, usability is necessary but not sufficient for adoption: as the introduction argued, IoT insecurity is driven as much by economic incentives and an unpatchable installed base as by the cost of proof, and development-time verification helps only the devices still to be built. With those caveats, the tools best placed to exploit this composition are those built for cooperation from the start, such as hax compiling Rust to several provers and Dafny compiling to several languages. The remaining frontier is the boundary with hardware, where formal models of an instruction set in the spirit of Sail could one day let software and hardware be verified against a single specification. Almost none of the underlying theory is new; the lexical, type-theoretic, flow-based, and Hoare-style ideas surveyed here date from the late 1960s to the 1980s. What is finally changing is their ease of use. On its own, cheaper proof will not move an industry whose incentives point elsewhere; but combined with the legal and economic pressure discussed above, lowering the cost of correctness is a necessary part of any durable solution for IoT devices that cannot be patched into safety.
 
+\section{Use of AI}
+
+\begin{enumerate}
+  \item Used Perplexity for research (i.e. finding papers).
+  \item Used ChatGPT and Claude to suggest a finer outline: https://claude.ai/share/a1e3b8b4-a6da-4b14-85c9-6de0babfcf5e
+  \item Used Claude for help with LaTeX: installation, auto-compile setup, errors, figures and layout
+  \item Used Claude to find citations for things I only know in my head -> had to be thoroughly verified because it likes to make stuff up
+  \item Finally, I used Claude for a paper review and language rewrite (e.g. more formal tone)
+\end{enumerate}
+
+For search, AI search is simply the next level of Google search or similar. Other tasks are either tedious nuisances that have no scientific value (e.g. setting up LaTeX) or are tasks that other humans would do (review and checking citations). In general I tried to make sure the AI is not driving my work (the extreme of which would look like this: write me an article on topic X), but I am driving the AI and simply using it as a more advanced tool and partner.  
+
+
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 \vspace{12pt}
